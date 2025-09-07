@@ -37,7 +37,6 @@ export interface DashboardStats {
   completedInterviews: number;
   successRate: number;
   averageScore: number;
-  practiceTime: number;
   weeklyGrowth: number;
   monthlyGrowth: number;
   scoreImprovement: number;
@@ -98,9 +97,6 @@ export async function getDashboardStats(userId: string): Promise<DashboardStats>
           )
         : 0;
 
-    // Calculate practice time (estimate based on completed interviews)
-    const practiceTime = totalInterviews * 25; // Assume 25 minutes per interview
-
     // Calculate weekly and monthly growth
     // For growth calculations, we'll use a simple approach since we don't track timestamps for user stats
     // This can be improved later by adding timestamps to user stats updates
@@ -126,7 +122,6 @@ export async function getDashboardStats(userId: string): Promise<DashboardStats>
       completedInterviews,
       successRate,
       averageScore,
-      practiceTime,
       weeklyGrowth,
       monthlyGrowth,
       scoreImprovement,
@@ -139,7 +134,6 @@ export async function getDashboardStats(userId: string): Promise<DashboardStats>
       completedInterviews: 0,
       successRate: 0,
       averageScore: 0,
-      practiceTime: 0,
       weeklyGrowth: 0,
       monthlyGrowth: 0,
       scoreImprovement: 0,

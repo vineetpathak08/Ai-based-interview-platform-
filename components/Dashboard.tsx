@@ -64,26 +64,12 @@ const Dashboard = ({
   const completedInterviews = dashboardStats?.completedInterviews || 0;
   const successRate = dashboardStats?.successRate || 0;
   const averageScore = dashboardStats?.averageScore || 0;
-  const practiceTime = dashboardStats?.practiceTime || 0;
   const weeklyGrowth = dashboardStats?.weeklyGrowth || 0;
   const monthlyGrowth = dashboardStats?.monthlyGrowth || 0;
   const scoreImprovement = dashboardStats?.scoreImprovement || 0;
 
   // Get recent activity with fallback
   const recentActivity = userInterviews?.slice(0, 5) || [];
-
-  // Format practice time with error handling
-  const formatPracticeTime = (minutes: number) => {
-    try {
-      if (!minutes || minutes < 0) return "0m";
-      if (minutes < 60) return `${minutes}m`;
-      const hours = Math.floor(minutes / 60);
-      return hours >= 24 ? `${Math.floor(hours / 24)}d` : `${hours}h`;
-    } catch (error) {
-      console.error("Error formatting practice time:", error);
-      return "0m";
-    }
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
@@ -164,21 +150,6 @@ const Dashboard = ({
                 {scoreImprovement} points{" "}
                 {scoreImprovement >= 0 ? "improved" : "to improve"}
               </p>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-gradient-to-br from-orange-900/50 to-orange-800/30 border-orange-500/30 backdrop-blur-sm">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-orange-200">
-                Practice Time
-              </CardTitle>
-              <Clock className="h-4 w-4 text-orange-400" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-white">
-                {formatPracticeTime(practiceTime)}
-              </div>
-              <p className="text-xs text-orange-300 mt-1">This month</p>
             </CardContent>
           </Card>
         </div>

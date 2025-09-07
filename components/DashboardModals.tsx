@@ -196,7 +196,6 @@ export function ViewAnalyticsModal({
   const completedInterviews = Array.isArray(userInterviews)
     ? userInterviews.filter((interview: any) => interview?.finalized).length
     : 0;
-  const totalTime = completedInterviews * 25; // Estimate 25 minutes per interview
 
   return (
     <Dialog>
@@ -214,7 +213,7 @@ export function ViewAnalyticsModal({
         </DialogHeader>
         <div className="space-y-6 mt-4">
           {/* Quick Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Card className="bg-slate-700/50 border-slate-600">
               <CardContent className="pt-6 text-center">
                 <div className="text-2xl font-bold text-emerald-400">
@@ -229,14 +228,6 @@ export function ViewAnalyticsModal({
                   {completedInterviews}
                 </div>
                 <p className="text-sm text-slate-300">Completed</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-slate-700/50 border-slate-600">
-              <CardContent className="pt-6 text-center">
-                <div className="text-2xl font-bold text-purple-400">
-                  {Math.floor(totalTime / 60)}h {totalTime % 60}m
-                </div>
-                <p className="text-sm text-slate-300">Practice Time</p>
               </CardContent>
             </Card>
           </div>
