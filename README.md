@@ -264,4 +264,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Made with ❤️ by [Vineet Pathak](https://github.com/vineetpathak08)
 
-For questions or support, please open an issue or contact [your-email@domain.com](mailto:your-email@domain.com)
+For questions or support, please open an issue or contact [pathakvineet2005@gmail.com](mailto:pathakvineet2005@gmail.com)
